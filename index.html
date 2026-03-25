@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>EMS Psych</title>
+  <meta name="description" content="EMS Psych — Psychology research with a focus on Autism and Autistic Masking">
+  <link rel="canonical" href="https://www.ems-psych.com">
+  <meta property="og:site_name" content="EMS Psych">
+  <meta property="og:title" content="EMS Psych">
+  <meta property="og:url" content="https://www.ems-psych.com">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Inter:ital,wght@0,400;0,500;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --white: #ffffff;
+      --black: #000000;
+      --light-bg: #f5f5f5;
+      --dark-bg: #1a1a1a;
+      --text-primary: #1a1a1a;
+      --text-light: #ffffff;
+      --accent: #1a1a1a;
+      --font-serif: 'Roboto', Georgia, serif;
+      --font-sans: 'Inter', sans-serif;
+      --site-max: 1500px;
+      --site-gutter: 4vw;
+      --header-height: 60px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-sans);
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--text-primary);
+      background: var(--white);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── HEADER ─── */
+    #header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: var(--white);
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    #header.hidden {
+      transform: translateY(-100%);
+    }
+
+    .header-inner {
+      max-width: var(--site-max);
+      margin: 0 auto;
+      padding: 0 var(--site-gutter);
+      height: var(--header-height);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    #site-title {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 300;
+      color: var(--text-primary);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+    }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .header-nav a {
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      text-decoration: none;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.75;
+      transition: opacity 0.2s;
+    }
+
+    .header-nav a:hover { opacity: 1; }
+
+    /* Mobile burger */
+    .burger-btn {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .burger-btn span {
+      display: block;
+      width: 22px;
+      height: 1px;
+      background: var(--text-primary);
+      transition: transform 0.3s, opacity 0.3s;
+    }
+
+    .burger-btn.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+    .burger-btn.open span:nth-child(2) { opacity: 0; }
+    .burger-btn.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: var(--header-height);
+      left: 0;
+      right: 0;
+      background: var(--white);
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+      padding: 1.5rem var(--site-gutter);
+      z-index: 99;
+    }
+
+    .mobile-menu.open { display: block; }
+
+    .mobile-menu a {
+      display: block;
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      text-decoration: none;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+
+    @media (max-width: 767px) {
+      .header-nav { display: none; }
+      .burger-btn { display: flex; }
+    }
+
+    /* ─── MAIN CONTENT ─── */
+    #page {
+      padding-top: var(--header-height);
+    }
+
+    /* ─── SECTION: CURRENT RESEARCH ─── */
+    #current-research {
+      background: var(--white);
+      padding: 5vw var(--site-gutter);
+      min-height: 60vh;
+      display: flex;
+      align-items: center;
+    }
+
+    .section-inner {
+      max-width: var(--site-max);
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    #current-research h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 300;
+      letter-spacing: -0.01em;
+      line-height: 1.15;
+      margin-bottom: 2.5rem;
+      color: var(--text-primary);
+    }
+
+    .button-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: none;
+      color: var(--white);
+      background: var(--black);
+      border: 2px solid var(--black);
+      border-radius: 100px;
+      padding: 0.75rem 1.75rem;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+      white-space: nowrap;
+    }
+
+    .btn-primary:hover {
+      background: var(--white);
+      color: var(--black);
+    }
+
+    @media (max-width: 767px) {
+      .button-group {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .btn-primary {
+        text-align: center;
+      }
+    }
+
+    /* ─── DIVIDER ─── */
+    .section-divider {
+      max-width: var(--site-max);
+      margin: 0 auto;
+      padding: 0 var(--site-gutter);
+    }
+
+    .section-divider hr {
+      border: none;
+      border-top: 1px solid rgba(0,0,0,0.15);
+    }
+
+    /* ─── SECTION: ABOUT ME ─── */
+    #about-me {
+      background: var(--light-bg);
+      padding: 5vw var(--site-gutter);
+    }
+
+    #about-me h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.4rem, 2.5vw, 2.2rem);
+      font-weight: 300;
+      letter-spacing: -0.01em;
+      line-height: 1.4;
+      color: var(--text-primary);
+      max-width: 900px;
+    }
+
+    /* ─── SECTION: SERVICES (empty, reserved) ─── */
+    #services {
+      background: var(--white);
+      padding: 5vw var(--site-gutter);
+      min-height: 20vh;
+    }
+
+    /* ─── FOOTER ─── */
+    #footer {
+      background: var(--dark-bg);
+      color: var(--text-light);
+      min-height: 10vh;
+      padding: 3vw var(--site-gutter);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #footer p {
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      opacity: 0.5;
+      text-transform: uppercase;
+    }
+
+    /* ─── ANIMATIONS ─── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .fade-in:nth-child(2) { transition-delay: 0.1s; }
+    .fade-in:nth-child(3) { transition-delay: 0.2s; }
+    .fade-in:nth-child(4) { transition-delay: 0.3s; }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header id="header">
+    <div class="header-inner">
+      <a id="site-title" href="/">EMS Psych</a>
+      <nav class="header-nav">
+        <a href="#about-me">About Me</a>
+        <a href="#services">Services</a>
+      </nav>
+      <button class="burger-btn" id="burgerBtn" aria-label="Open Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about-me" onclick="closeMobileMenu()">About Me</a>
+    <a href="#services" onclick="closeMobileMenu()">Services</a>
+  </div>
+
+  <!-- MAIN -->
+  <main id="page">
+
+    <!-- CURRENT RESEARCH -->
+    <section id="current-research">
+      <div class="section-inner">
+        <h1 class="fade-in">Current Research</h1>
+        <div class="button-group">
+          <a class="btn-primary fade-in" href="pdfs/UGS-2026-Camouflaging-Presentation.pdf" target="_blank" rel="noopener">UGS 2026 Presentation</a>
+          <a class="btn-primary fade-in" href="pdfs/Masking-presentation.pdf" target="_blank" rel="noopener">Autistic Masking and Camouflaging Presentation</a>
+          <a class="btn-primary fade-in" href="pdfs/Viewers-Copy-of-Autistic-masking-resource.pdf" target="_blank" rel="noopener">More Info On Autistic Masking</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- DIVIDER -->
+    <div class="section-divider"><hr></div>
+
+    <!-- ABOUT ME -->
+    <section id="about-me">
+      <div class="section-inner">
+        <h2 class="fade-in">I am a psychology student with special interest in Autism and particularly Autistic Masking</h2>
+      </div>
+    </section>
+
+    <!-- SERVICES (reserved, blank for now) -->
+    <section id="services">
+      <div class="section-inner">
+        <!-- Content coming soon -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <p>&copy; 2025 EMS Psych</p>
+  </footer>
+
+  <script>
+    // Scroll-hide header (Squarespace "Scroll Back" behavior)
+    let lastScroll = 0;
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      const current = window.scrollY;
+      if (current > lastScroll && current > 80) {
+        header.classList.add('hidden');
+      } else {
+        header.classList.remove('hidden');
+      }
+      lastScroll = current;
+    }, { passive: true });
+
+    // Mobile menu
+    const burgerBtn = document.getElementById('burgerBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    burgerBtn.addEventListener('click', () => {
+      burgerBtn.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+    });
+    function closeMobileMenu() {
+      burgerBtn.classList.remove('open');
+      mobileMenu.classList.remove('open');
+    }
+
+    // Fade-in on scroll
+    const fadeEls = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+    }, { threshold: 0.1 });
+    fadeEls.forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
