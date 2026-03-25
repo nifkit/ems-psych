@@ -18,13 +18,17 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --white: #ffffff;
-      --black: #000000;
-      --light-bg: #f5f5f5;
-      --dark-bg: #1a1a1a;
-      --text-primary: #1a1a1a;
-      --text-light: #ffffff;
-      --accent: #1a1a1a;
+      --olive:    #41431B;
+      --sage:     #AEB784;
+      --tan:      #E3DBBB;
+      --cream:    #F8F3E1;
+      --white:    #F8F3E1;
+      --black:    #41431B;
+      --light-bg: #E3DBBB;
+      --dark-bg:  #41431B;
+      --text-primary: #2e3010;
+      --text-light: #F8F3E1;
+      --accent:   #41431B;
       --font-serif: 'Roboto', Georgia, serif;
       --font-sans: 'Inter', sans-serif;
       --site-max: 1500px;
@@ -50,8 +54,8 @@
       left: 0;
       right: 0;
       z-index: 100;
-      background: var(--white);
-      border-bottom: 1px solid rgba(0,0,0,0.08);
+      background: #F8F3E1;
+      border-bottom: 1px solid rgba(65,67,27,0.15);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
@@ -127,8 +131,8 @@
       top: var(--header-height);
       left: 0;
       right: 0;
-      background: var(--white);
-      border-bottom: 1px solid rgba(0,0,0,0.08);
+      background: #F8F3E1;
+      border-bottom: 1px solid rgba(65,67,27,0.15);
       padding: 1.5rem var(--site-gutter);
       z-index: 99;
     }
@@ -160,7 +164,7 @@
 
     /* ─── SECTION: CURRENT RESEARCH ─── */
     #current-research {
-      background: var(--white);
+      background: linear-gradient(135deg, #F8F3E1 0%, #E3DBBB 50%, #AEB784 100%);
       padding: 5vw var(--site-gutter);
       min-height: 60vh;
       display: flex;
@@ -236,7 +240,7 @@
 
     /* ─── SECTION: ABOUT ME ─── */
     #about-me {
-      background: var(--light-bg);
+      background: #AEB784;
       padding: 5vw var(--site-gutter);
     }
 
@@ -246,13 +250,13 @@
       font-weight: 300;
       letter-spacing: -0.01em;
       line-height: 1.4;
-      color: var(--text-primary);
+      color: #2e3010;
       max-width: 900px;
     }
 
     /* ─── SECTION: SERVICES (empty, reserved) ─── */
     #services {
-      background: var(--white);
+      background: #E3DBBB;
       padding: 5vw var(--site-gutter);
       min-height: 20vh;
     }
