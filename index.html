@@ -189,9 +189,9 @@
 
     .button-group {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: minmax(200px, 420px) minmax(200px, 420px);
       gap: 1rem;
-      max-width: 900px;
+      max-width: 860px;
     }
 
     .btn-primary {
@@ -219,7 +219,6 @@
     @media (max-width: 767px) {
       .button-group {
         grid-template-columns: 1fr;
-      }
       }
     }
 
